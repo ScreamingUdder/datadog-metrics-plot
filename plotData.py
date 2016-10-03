@@ -17,10 +17,6 @@ result['time'] -= result['time'][0]
 result['time'] *= 0.001
 result['events per second'] *= 500000
 
-#pl.figure()
-#seaborn.regplot(x='time', y='messages per second', data=result)
-#pl.figure()
-#seaborn.tsplot(data=result, value='messages per second', time='time')
 pl.figure()
 seaborn.tsplot([result['events per second']], time=result.time)
 
@@ -47,10 +43,9 @@ result_bytes_out['time'] *= 0.001
 
 
 pl.figure()
-#seaborn.tsplot([result_bytes_in['bytes per second']], time=result_bytes_in.time)
-seaborn.tsplot([result_bytes_out['events per second']], time=result_bytes_out.time)#, color='indianred'
-# Events per second (x10^6)
-# Time (seconds)
+seaborn.tsplot([result_bytes_out['events per second']], time=result_bytes_out.time)
+# y: Events per second (x10^6)
+# x: Time (seconds)
 
 pl.figure()
 seaborn.regplot(x=result_bytes_out.time, y=result_bytes_out['events per second'])
